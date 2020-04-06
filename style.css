@@ -1,0 +1,47 @@
+/*Global styles*/
+*,
+*::before,
+*::after {
+    margin: .5rem .8rem;
+    padding: .2rem .2rem;
+    box-sizing: border-box;
+}
+
+:root {
+    /*Variables*/
+    --main-font: 'Consolas', sans-serif;;
+
+    --main-font-color-dark: #110033;
+    --secondary-font-color: #00008B;
+    --color-lighter: rgba(130, 177, 240, 0.1);
+    --color-darker: rgba(130, 177, 255, 0.1);
+}
+
+
+body {
+    background-color: var(--color-lighter);
+}
+
+section {
+    font-family: var(--main-font);
+    font-size: 1.3rem;
+}
+
+h2 {
+    font-weight: 900;
+    color: var(--main-font-color-dark);
+    text-align: center;
+}
+
+h3 {
+    color: var(--secondary-font-color);
+}
+
+ol {
+    background-color: var(--color-darker);
+}
+
+ul {
+    font-size: 1.3rem;
+    background-color: var(--color-darker);
+}
