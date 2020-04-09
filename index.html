@@ -21,10 +21,10 @@
 </script>
 </head>
 <body>
-
-
-
-<h2>Schemat Goldwasser-Micali szyfrowania probabilistycznego</h2>
+<div class =container">
+<div class="web-content">
+<article>
+<header><h2>Schemat Goldwasser-Micali szyfrowania probabilistycznego</h2><header>
 <h3>Algorytm generowania kluczy</h3>
 <ol>
   <li>Wybierz losowo dwie duże liczby pierwsze $p$ oraz $q$ (podobnego rozmiaru),</li>
@@ -52,8 +52,10 @@
     </section></li>
   <li>Zdeszyfrowana wiadomość to $m=(m_1 m_2 ... m_t)$</li>
 </ol>
-
-<h2>Reszta/niereszta kwadratowa</h2>
+        </article>
+        </div>
+<article>
+<header><h2>Reszta/niereszta kwadratowa</h2></header>
 <p><b>Definicja.</b> Nech $a \in \mathbb{Z_n}$. Mówimy, że $a$ jest <i>resztą kwadratową modulo $n$ (kwadratem modulo $n$)</i>, jeżeli istnieje $x \in \mathbb{Z^*_n}$ takie, że $x^2 \equiv a (\textrm{ mod } p)$. Jeżeli takie $x$ nie istnieje, to wówczas $a$ nazywamy <i>nieresztą kwadratową modulo $n$</i>. Zbiór wszystkich reszt kwadratowych modulo $n$ oznaczamy $Q_n$, zaś zbiór wszystkich niereszt kwadratowych modulo $n$ oznaczamy $\overline{Q_n}$.</p>
 <h2>Symbol Legendre’a i Jacobiego</h2>
 <p><b>Definicja.</b> Nech $p$ będzie nieparzystą liczbą pierwszą a $a$ liczbą całkowitą. <i>Symbol Legendre’a</i> $\left ( \frac{a}{p}\right )$ jest zdefiniowany jako: $$f(x) = \left\{\begin{array}{ll}1 & \textrm{ jeżeli } p|a\\1 & \textrm{ jeżeli } a \in Q_p\\-1 & \textrm{ jeżeli } a \in \overline{Q_p}\end{array}\right.$$</p>
@@ -82,7 +84,8 @@ $$\bigg( \frac{a}{n}\bigg) = \left ( \frac{a}{p_1}\right )^{e_1}\left ( \frac{a}
 Z własności symbolu Jacobiego wynika, że jeżeli $n$ nieparzyste oraz $a$ nieparzyste i w postaci $a = 2^ea_1$, gdzie $a_1$ też nieparzyste, to:
 $$\bigg( \frac{a}{n}\bigg) =\left ( \frac{2^c}{n}\right )\bigg( \frac{a_1}{n}\bigg) = \left ( \frac{2}{n}\right )^e\left ( \frac{n \textrm{ mod }a_1}{a_1}\right ) (-1)^{\frac{(a_1-1)(n-1)}{4}}$$
 </p>
-
+</article>
+          <article>
 <p><b>Algorytm obliczania symbolu Jacobiego $\left ( \frac{a}{n}\right )$ (i Legendre’a) </b> dla nieparzystej liczby całkowitej $ n \geqslant 3$ oraz całkowitego $0 \leqslant a \leqslant n$ <br>
   <section id="algo">
     JACOBI $(a, n)$
@@ -100,10 +103,10 @@ $$\bigg( \frac{a}{n}\bigg) =\left ( \frac{2^c}{n}\right )\bigg( \frac{a_1}{n}\bi
   </section>
 Algorytm działa w czasie $\mathcal{O}((log{}n)^2)$
 </p>
-
-<h2>Schemat progowy $(t, n)$ dzielenia sekretu Shamira</h2>
+<article>
+<header><h2>Schemat progowy $(t, n)$ dzielenia sekretu Shamira</h2></header>
 <p><b>Cel:</b> Zaufana Trzecia Strona $T$ ma sekret $S \geqslant 0$, który chce podzielić pomiędzy $n$ uczestników tak, aby dowolnych t spośród nich mogło sekret odtworzyć.</p>
-<p><b>Faza inicjalizacji:</b> 
+<p><b>Faza inicjalizacji:</b>
 <ul>
   <li>$T$ wybiera liczbę pierwszą $p > \textrm{ max }(S, n)$ i definiuje $a_0 = S$,</li>
   <li>$T$ wtbiera losowo i niezależnie $t-1$ współczynników $a_1,...,a_{t-1} \in \mathbb{Z_p}$</li>
@@ -113,8 +116,8 @@ Algorytm działa w czasie $\mathcal{O}((log{}n)^2)$
 </ul></p>
 <p><b>Faza łączenia udziałów w sekret:</b> Dowolna grupa $t$ lub więcej użytkowników łączy swoje udziały - $t$ różnych punktów $(x_i , S_i )$ wielomianu $f$ i dzięki interpolacji Lagrange’a odzyskuje sekret $S = a_0 = f (0)$.</p>
 
-<h2>Interpolacja Lagrange’a</h2>
-<p>Mając dane $t$ różnych punktów $(x_i , y_i )$ nieznanego wielomianu $f$ stopnia mniejszego od $t$ możemy policzyć jego współczynniki korzystając ze wzoru: 
+<header><h2>Interpolacja Lagrange’a</h2></header>
+<p>Mając dane $t$ różnych punktów $(x_i , y_i )$ nieznanego wielomianu $f$ stopnia mniejszego od $t$ możemy policzyć jego współczynniki korzystając ze wzoru:
 $$f(x) =\sum_{i=1}^{t} \left( y_i \prod_{1 \leqslant j \leqslant t, \, j \neq i}{} \frac{x-x_j}{x_i-x_j} \right ) \textrm{ mod } p$$</p>
 
 <p><b>Wskazówka:</b> w schemacie Shamira, aby odzyskać sekret $S$, użytkownicy nie muszą znać całego wielomianu $f$. Wstawiając do wzoru na interpolację Lagrange’a $x = 0$, dostajemy wersję uproszczoną, ale wystarczającą aby policzyć
@@ -125,7 +128,7 @@ $$f(x) =\sum_{i=1}^{t} \left( y_i \prod_{1 \leqslant j \leqslant t, \, j \neq i}
 <p><b>Przykład:</b> przyjmijmy, że naszym sekretem $S$ jest liczba 15. Chcemy ją pozielić pomiędzy $n = 6$ uczestników tak, aby $t = 4 $ z nich mogło go odszyfrować.
   <ul>
   <li>wybieramy liczbę pierwszą $p > \textrm{ max }(S, n) = 17$ i definiujemy $a_0 = S$,</li>
-  <li>wybieramy losowo i niezależnie $3$ współczynniki $a_1,...,a_3 \in \mathbb{Z_{17}}$ <br> 
+  <li>wybieramy losowo i niezależnie $3$ współczynniki $a_1,...,a_3 \in \mathbb{Z_{17}}$ <br>
   $a_0 = 15, a_1 = 3, a_2 = 8, a_3 = 10$</li>
   <li>w naszym przypadku wielomian przyjmuje następującą postać:
  $$f(x) = 15 + 3x + 8x^2 +10x^3$$</li>
@@ -139,6 +142,8 @@ $$f(x) =\sum_{i=1}^{t} \left( y_i \prod_{1 \leqslant j \leqslant t, \, j \neq i}
   </li>
 </ul>
 Następnie pozostaje odtworzenie tego sekretu za pomocą interpolacji Lagrange'a.
+          </article>
 </p>
+  </div>
 </body>
 </html>

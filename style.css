@@ -33,7 +33,7 @@ h2 {
     text-align: center;
 }
 
-h3 {
+header h3 {
     color: var(--secondary-font-color);
 }
 
